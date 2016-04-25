@@ -78,6 +78,6 @@ class StandardTest extends \PHPUnit_Framework_TestCase
     public function getPdf()
     {
         // TODO: provide invoice collection from fixtures
-        $this->assertInstanceOf('Dompdf\Dompdf', $this->_model->getPdf([]));
+        $this->assertInstanceOf('Dompdf', $this->_model->getPdf([]));
     }
 }
