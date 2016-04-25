@@ -10,18 +10,4 @@ use FireGento\Pdf\Model\Engine\AbstractEngine;
 class Standard extends AbstractEngine
 {
 
-    /**
-     * Return PDF document
-     *
-     * @param array|Collection $invoices
-     *
-     * @return \Zend_Pdf
-     */
-    public function getPdf($invoices = [])
-    {
-        // TODO implement
-        echo 'works';
-        exit;
-    }
-
 }

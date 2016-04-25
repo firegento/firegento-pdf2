@@ -10,6 +10,24 @@ use Magento\Sales\Model\Order\Pdf\AbstractPdf;
 abstract class AbstractEngine extends AbstractPdf
 {
 
-    // TODO implement
+    protected function getDomPdf()
+    {
 
+    }
+
+    /**
+     * Return PDF document
+     *
+     * @param array|Collection $invoices
+     *
+     * @return \Zend_Pdf
+     */
+    public function getPdf($invoices = [])
+    {
+        $domPdf = $this->getDomPdf();
+
+        // TODO implement
+        echo 'works';
+        exit;
+    }
 }
