@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 FireGento e.V. - All rights reserved.
+ * See LICENSE.md bundled with this module for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales_pdf">
+            <group id="firegento_pdf" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>PDF Creation</label>
+                <field id="sender_address_bar" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Address Bar</label>
+                </field>
+            </group>
+            <group id="invoice">
+                <field id="engine" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PDF Engine</label>
+                    <source_model>FireGento\Pdf\Model\System\Config\Source\Invoice\Engine</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
