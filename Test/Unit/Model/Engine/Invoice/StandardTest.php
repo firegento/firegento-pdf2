@@ -56,6 +56,12 @@ class StandardTest extends \PHPUnit_Framework_TestCase
         $localeMock = $this->getMock('Magento\Framework\Stdlib\DateTime\TimezoneInterface', [], [], '', false, false);
         $translate = $this->getMock('Magento\Framework\Translate\Inline\StateInterface', [], [], '', false);
         $addressRenderer = $this->getMock('Magento\Sales\Model\Order\Address\Renderer', [], [], '', false);
+        $storeManagerMock = $this->getMockBuilder('Magento\Store\Model\StoreManagerInterface')
+            ->getMock();
+        $localeResolver = $this->getMock('\Magento\Framework\Locale\ResolverInterface', [], [], '', false);
+        $resultPageFactoryMock = $this->getMockBuilder('Magento\Framework\View\Result\PageFactory')
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $this->_model = new Standard(
             $paymentHelper,
@@ -68,6 +74,9 @@ class StandardTest extends \PHPUnit_Framework_TestCase
             $localeMock,
             $translate,
             $addressRenderer,
+            $storeManagerMock,
+            $localeResolver,
+            $resultPageFactoryMock,
             []
         );
     }
@@ -78,6 +87,6 @@ class StandardTest extends \PHPUnit_Framework_TestCase
     public function getPdf()
     {
         // TODO: provide invoice collection from fixtures
-        $this->assertInstanceOf('Dompdf', $this->_model->getPdf([]));
+        $this->assertInstanceOf('Zend_Pdf', $this->_model->getPdf([]));
     }
 }
