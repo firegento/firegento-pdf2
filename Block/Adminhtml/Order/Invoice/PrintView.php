@@ -7,7 +7,7 @@ class PrintView extends \Magento\Backend\Block\Template
     protected $invoice;
 
     /**
-     * @return mixed
+     * @return \Magento\Sales\Model\Order\Invoice
      */
     public function getInvoice()
     {
@@ -15,7 +15,7 @@ class PrintView extends \Magento\Backend\Block\Template
     }
 
     /**
-     * @param mixed $invoice
+     * @param \Magento\Sales\Model\Order\Invoice $invoice
      */
     public function setInvoice($invoice)
     {
