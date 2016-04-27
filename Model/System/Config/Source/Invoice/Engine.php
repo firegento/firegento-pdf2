@@ -5,24 +5,37 @@
  */
 namespace FireGento\Pdf\Model\System\Config\Source\Invoice;
 
-class Engine implements \Magento\Framework\Option\ArrayInterface
+use FireGento\Pdf\Model\Config\Reader;
+use FireGento\Pdf\Model\Pdf\Type;
+use Magento\Framework\Option\ArrayInterface;
+
+class Engine implements ArrayInterface
 {
 
     /**
-     * To option array
-     *
-     * @return array
+     * @var Reader
+     */
+    protected $_reader;
+
+    public function __construct(Reader $reader)
+    {
+        $this->_reader = $reader;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function toOptionArray()
     {
-        // TODO get the available engines from the pdf.xml files
-        return [
-            ['value' => '', 'label' => __('Standard Magento')],
-            [
-                'value' => 'FireGento\Pdf\Model\Engine\Invoice\Standard',
-                'label' => __('Standard FireGento')
-            ]
+        $result  = [
+            ['value' => '', 'label' => __('Standard Magento')]
         ];
+        $engines = $this->_reader->read()[Type::INVOICE];
+        foreach ($engines as $engine) {
+            $result[] = ['value' => $engine['type'], 'label' => $engine['label']];
+        }
+
+        return $result;
     }
 
 }
