@@ -9,4 +9,11 @@
     <type name="Magento\Sales\Model\Order\Pdf\Invoice">
         <plugin name="firegentoPdfChangeEngine" type="FireGento\Pdf\Plugin\Invoice\AroundGetPdfPlugin" sortOrder="1"/>
     </type>
+    <type name="FireGento\Pdf\Model\Config\Reader" shared="true">
+        <arguments>
+            <argument name="fileName" xsi:type="string">firegento_pdf.xml</argument>
+            <argument name="converter" xsi:type="object">FireGento\Pdf\Model\Config\Reader\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">FireGento\Pdf\Model\Config\Reader\SchemaLocator</argument>
+        </arguments>
+    </type>
 </config>
